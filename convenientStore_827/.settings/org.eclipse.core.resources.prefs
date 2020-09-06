@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/includes/commonContents.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/includes/commonfooter.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/includes/pagingAndSearch.jsp=UTF-8
+encoding//src/test/java/www/convenient/store/persistence/NoticeMapperTests.java=UTF-8
+encoding/<project>=UTF-8

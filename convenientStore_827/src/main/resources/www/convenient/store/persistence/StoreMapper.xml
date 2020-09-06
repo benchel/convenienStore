@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.convenient.store.persistence.StoreMapper">
+
+	<!-- resultMap type="반환할 타입(경로포함)" id="ResultMap의 이름" -->
+	<resultMap type="www.convenient.store.model.StoreVO" id="storeMap">
+		<!-- result column="칼럼이름" property="VO의 필드(속성)이름"/-->
+		<result column="store_id" property="storeId"/>
+		<result column="store_brand" property="storeBrand"/>	
+	</resultMap>
+
+	<!-- 조회 결과를 StoreVO 객체로 반환 -->
+	<select id="getStoreList" resultType="www.convenient.store.model.StoreVO" resultMap="storeMap">
+		select * from tbl_store
+	</select>
+
+</mapper>

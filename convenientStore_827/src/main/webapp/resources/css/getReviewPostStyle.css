@@ -1,0 +1,335 @@
+*{margin:0; padding:0;}
+
+.wrap{margin: 0 auto; width: 1200px;}
+
+#contents{float: left; width: 100%;}
+
+#postInputForm{
+    float: left;
+    width: 90%;
+    height: 1200px;
+    margin:3%;
+    border: 1px solid black;
+}
+
+.pno{
+    float: left;
+    margin-left: 3%;
+    width: 90%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.title{
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 3%;
+    margin-bottom: 10px;
+}
+
+.Inputtitle{
+    float: left;
+    margin-left: 3%;
+    width: 90%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.write{
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 3%;
+    margin-bottom: 10px;    
+}
+
+.InputWrite{
+    margin-left: 3%;
+    float: left;
+    margin-left: 3%;
+    width: 90%;
+    height: 20px;
+    margin-bottom: 10px;    
+}
+
+.regdate{
+    float: left;
+    width: 90%;
+    font-size: 18px;
+    padding-left: 3%;
+    margin-bottom: 10px; 
+}
+
+.Inputregdate{
+    margin-left: 3%;
+    float: left;
+    width: 90%;
+    height: 20px; 
+}
+
+.updateDate{
+    padding-left: 3%;
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 5px;     
+}
+
+.InputupdateDate{
+    margin-left: 3%;
+    float: left;
+    width: 90%;
+    height: 20px;
+    margin-bottom: 5px;    
+}
+
+/* reviewTarget layout */
+.reviewTarget{
+    float: left;
+    margin-left: 3%;
+    width: 100%;
+}
+
+.ProductReview {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* 편의점 브랜드 입력 UI */
+.storebrand {
+    width: 120px;
+    float: left;
+    margin-right: 10px;
+}
+.SelectStorebrand {
+    width: 80px;
+    float: left;
+    margin-right: 10px;
+}
+
+.ProductInfo{
+    float: left;
+    width: 100%;
+}
+
+/*상품분류 입력 UI*/
+.prdAssort{
+    width: 70px;
+    float: left;
+    margin-right: 10px;
+}
+.SelectprdAssort{
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+}
+
+/* 상품이름 입력 UI*/
+.prdName{
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.InputprdName{
+    width: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+/* 상품가격 입력 UI */
+.prdPrice{
+    width: 70px;
+    float: left;
+}
+
+.InputprtPrice{
+    width: 120px;
+    float: left;
+    margin-right: 10px;
+}
+
+/* 상품평 입력 UI */
+.prdRate{
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+}
+
+.radioPrdRate{
+    width: 200px;
+    float: left;
+}
+
+.radioPrdRate>li {
+    float: left;
+    list-style: none;
+}
+
+/* 본문 입력 UI*/
+.content{
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    margin-left: 3%; margin-bottom: 10px;
+}
+
+.InputText{
+    float: left;
+    margin-left: 3%;
+    width: 90%;
+    height: 300px;    
+}
+
+
+.listbtn{
+    float: right;
+    margin-top: 3%;
+    margin-right: 6.5%;
+    width: 120px;
+}
+
+.modifybtn{
+    float: right;
+    margin-top: 3%;
+    margin-right: 1%;
+    width: 120px;
+}
+
+.deletebtn{
+    float: right;
+    margin-top: 3%;
+    margin-right: 1%;
+    width: 120px;    
+}
+
+/* 댓글 UI */
+#replySection{
+    float: left;
+    width: 90%;
+    margin:3%;
+    border: 1px solid black;
+}
+
+.replyList{
+    margin: 1.5%;
+    width: 97%;
+}
+
+.replyWindow{
+    width: 100%;
+    background-color: antiquewhite;
+    list-style: none;
+}
+
+.hid{
+    float: left;
+    display: none;
+    width: 10%;
+    border: 1px solid #ccc;
+}
+
+.writerV{
+    float: left;
+    display: block;
+    width: 59%;
+    border: 1px solid #ccc;
+}
+
+.regdateV{
+    float: left;
+    display: block;
+    width: 20%;
+    border: 1px solid #ccc;    
+}
+
+.updateV{
+    float: left;
+    display: block;
+    width: 20%;
+    border: 1px solid #ccc;        
+}
+
+.contentV{
+    float: left;
+    display: block;
+    width: 99.4%;
+    border: 1px solid #ccc;       
+}
+
+.parentW{
+    float: left;
+    width: 100%;
+    margin-left: 10px;
+}
+
+/* 선호상품_등록 */
+#preferform{
+    float: left;
+}
+
+/* 대댓글 전용 프레임 */
+.rereplyFrame{
+    float: left;
+    width: 95%;
+    margin-left: 5%;
+}
+
+/* 댓글 목록의 첫번째 */
+.replyList>:nth-child(1){
+    
+}
+
+.replyinputWindow{
+    float: left;
+    margin: 1.5%;
+    width: 97%; 
+    height: 120px;
+    background-color: cadetblue;
+}
+
+#replyForm{
+    float: left;
+    width: 100%;
+}
+
+.writerI{
+    margin-left: 0.8%;
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+.rplyContI{
+    float: left;
+    margin: 0.8%;
+    width: 98%;
+    height: 50px;;
+}
+
+.rplybtnI{
+    float: right;
+    margin-right: 0.8%;
+    width: 100px;
+}
+
+.pageHandler{
+    float: left; height: 50px;
+    margin-top: 20px;
+    margin-left: 34%;
+    margin-right: 34%;
+}
+
+.pageHandler li{
+    float: left; 
+    list-style: none;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+}

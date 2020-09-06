@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.convenient.store.personalization.persistence.PreferMapper">
+
+	<!-- PreferVO를 resultMap으로 맵핑함 -->
+	<!-- resultMap type="반환할 타입(경로포함)" id="ResultMap의 이름" -->
+	<resultMap type="www.convenient.store.personalization.model.PreferVO"
+	 id="preferMap">
+	 	<result column="user_id" property="userId"/>
+		<result column="store_brand" property="store.storeBrand"/>
+		<result column="prd_assort" property="preferProdc.prdAssort"/>
+		<result column="prd_name" property="preferProdc.prdName"/>
+		<result column="prd_price" property="preferProdc.prdPrice"/> 
+	</resultMap>
+
+	<select id="preferTotal" resultMap="preferMap">
+		SELECT count(*) FROM tbl_prefer WHERE user_id=#{userId}
+	</select>
+
+	<select id="getPreferList" resultMap="preferMap">
+		SELECT USER_ID, STORE_BRAND , PRD_ASSORT , PRD_NAME , PRD_PRICE
+		 FROM tbl_prefer WHERE user_id=#{userId}
+	</select>
+
+	<!-- 중복되는 부분을 빼내어 별도로 정의함 -->
+	<sql id="recommendPreferlistAttribute">
+		STORE_BRAND , PRD_ASSORT , PRD_NAME , PRD_PRICE
+	</sql>
+	
+	<select id="recommendPreferlist" resultMap="preferMap">
+		SELECT <include refid="recommendPreferlistAttribute" /> FROM (
+		SELECT <include refid="recommendPreferlistAttribute" /> FROM tbl_prefer WHERE USER_ID IN(
+		    select PF.user_id 
+		    from tbl_prefer PF 
+		    where PF.user_id NOT IN(#{userId})
+		    AND PF.prd_name in(#{preferProdc.prdName})
+		    )
+		)WHERE prd_name NOT IN (#{preferProdc.prdName}) AND PRD_ASSORT=#{preferProdc.prdAssort}
+		GROUP BY STORE_BRAND , PRD_ASSORT , PRD_NAME , PRD_PRICE
+	</select>
+
+	<insert id="registerPrefer">
+		INSERT INTO tbl_prefer(user_id, store_brand, prd_assort,
+		 prd_name, prd_price)
+	    VALUES (#{userId}, #{store.storeBrand}, #{preferProdc.prdAssort},
+	    #{preferProdc.prdName}, #{preferProdc.prdPrice})
+	</insert>
+	
+</mapper>

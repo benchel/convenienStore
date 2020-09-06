@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.convenient.store.persistence.ReplyMapper">
+
+	<resultMap id="replyResultMap" type="www.convenient.store.model.ReplyVO">
+		<!-- 객체 생성자 호출을 통하여 만듦 -->
+		<constructor>	
+			<!-- 객체 중복을 피하기 위하여 idArg를 활용함 -->
+			<idArg column="hierarchy_id" javaType="String"/>
+		</constructor>
+		<result property="content" column="content" />
+		<result property="depth" column="countChar"/>
+		<result property="writer" column="writer_id" />
+		<result property="regdate" column="regdate" />
+		<result property="updateDate" column="updateDate" />
+	</resultMap>
+
+	<!-- || (쌍 파이프). 문자열이나 컬럼을 합쳐주는 역할을 한다.  -->
+	<insert id="insertReply">
+		<selectKey keyProperty="reply.hierarchyId" order="BEFORE" resultType="string">
+          <![CDATA[
+            select #{post.hierarchyId} || #{reply.hidDeli} || to62(seq_post.nextval) from dual
+      	  ]]>
+		</selectKey>
+		insert into tbl_post (hierarchy_id, obj_type, content, writer_id)
+			values(#{reply.hierarchyId}, #{reply.clsType}, #{reply.content}, #{reply.writer})
+	</insert>
+
+	<!-- || (쌍 파이프). 문자열이나 컬럼을 합쳐주는 역할을 한다.  -->
+	<insert id="insertReReply">
+		<selectKey keyProperty="reply.hierarchyId" order="BEFORE" resultType="string">
+          <![CDATA[
+            select #{parent.hierarchyId} || #{reply.hidDeli} || to62(seq_post.nextval) from dual
+      	  ]]>
+		</selectKey>
+		insert into tbl_post (hierarchy_id, obj_type, content, writer_id)
+			values(#{reply.hierarchyId}, #{reply.clsType}, #{reply.content}, #{reply.writer})
+	</insert>
+	
+	<!-- 특정 게시물에 달린 모든 댓글을 조회한다. -->
+	<select id="getReplyList" resultMap="replyResultMap">
+		SELECT
+		    countChar(P.hierarchy_id, #{parent.hidDeli}) countChar, P.hierarchy_id, P.content,
+		    p.writer_id, p.regdate, p.updatedate
+		FROM tbl_post P
+		    WHERE obj_type='R'
+		    AND p.hierarchy_id LIKE #{parent.hierarchyId} || '%'
+	</select>
+	
+</mapper>

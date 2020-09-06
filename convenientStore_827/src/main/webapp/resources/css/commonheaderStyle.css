@@ -1,0 +1,19 @@
+*{margin:0; padding:0; text-decoration-line: none; }
+
+.wrap{margin: 0 auto; width: 1200px;}
+
+#header{float: left; width: 100%; font-size: 18px;}
+
+.logo{float: left; width: 100%;
+    margin-left: 35%; margin-top: 20px; font-size: 22px;}
+
+.navigation{float: left;}
+.menubar{float: left; width: 200px;}
+.menubar li{float: left; width: 100px; list-style-type: none;}
+
+.loginUI{float: left; width: 300px; margin-left: 80%;}
+.loginul{float: left;}
+.loginUI li{float: left; width: 200px; list-style-type: none;}
+
+#slide{}
+.imgSet{}

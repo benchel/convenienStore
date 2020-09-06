@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="www.convenient.store.party.persistence.PartyMapper">
+
+	<resultMap type="www.convenient.store.party.model.PartyVO" id="partyResultMap">
+		<id property="userId" column="user_id" />
+		<result property="userPwd" column="user_pwd" />
+		<result property="userRole" column="user_role" />
+		<association property="partyInfo" resultMap="partyInfoResultMap" />
+		<collection property="listRole" ofType="www.convenient.store.party.model.RoleVO">
+			<!-- RoleVO의 필드 name에 컬럼 값을 넣어 id를 생성한다. -->
+			<id property="name" column="user_role"/>
+		</collection>
+	</resultMap>
+	
+	<resultMap type="www.convenient.store.party.model.PartyInfoVO" id="partyInfoResultMap">
+		<id property="userId" column="user_id" />
+		<result property="yearOfBirth" column="year_of_birth" />
+		<result property="email" column="email" />
+		<result property="status" column="status" />
+		<result property="joindate" column="joindate" />
+		<result property="blockdate" column="blockdate" />
+	</resultMap>
+
+	<select id="findByUserId" resultMap="partyResultMap">
+		SELECT u.*, uInfo.year_of_birth, uInfo.email,
+		    uinfo.joindate, uinfo.blockdate, uinfo.status
+		FROM 
+		    tbl_user u, tbl_userinfo uInfo 
+		WHERE u.user_id=uinfo.user_id
+		AND u.user_id=#{userId}
+	</select>
+
+	<insert id="registerUser">
+		INSERT ALL
+		    INTO tbl_user(user_id, user_pwd, user_role)
+		    VALUES(#{party.userId}, #{party.userPwd}, #{party.userRole})
+		    INTO tbl_userinfo(user_id, year_of_birth, email)
+		    VALUES(#{party.userId}, #{party.partyInfo.yearOfBirth},#{party.partyInfo.email})
+		<![CDATA[SELECT * FROM dual]]>
+	</insert>
+	
+</mapper>

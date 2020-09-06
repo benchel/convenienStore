@@ -1,0 +1,150 @@
+*{margin: 0; padding: 0;}
+
+.wrap{margin: 0 auto; width: 1200px; height: 800px;}
+
+#header{float: left; width: 100%; height: 200px;}
+
+.logo{
+    float: left; 
+    font-size: 30px; 
+    color: cadetblue;
+    margin-top: 10%;
+    margin-left: 38%;
+    margin-right: 38%;
+}
+
+/* 안내 문구 */
+.phrase{
+    float: left;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-left: 26%;
+    text-align: center;
+    color: #00664d;
+}
+
+.datumLine{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+    background-color: aliceblue;
+    height: 3px;
+    border: 0px;
+}
+
+#contents{
+    float: left;
+    width: 100%;
+    height: 600px;
+    background-color: #d1e0e0;
+}
+
+#joinForm{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.userInput{
+    float: left; width: 100%;
+    list-style: none;
+    margin-top: 2%;
+}
+
+.userInput li{
+    float: left; width: 100%;
+    margin-top: 25px; 
+}
+
+.userInput li label{
+    float: left;
+    margin-left: 25%;
+}
+.userInfo{
+    float: left; 
+    width: 100%;
+    list-style: none;
+}
+
+.userInfo li{
+    float: left; width: 100%;
+    margin-top: 25px; 
+}
+
+.userInfo li label{
+    float: left;
+    margin-left: 25%;
+}
+
+/* label_Input */
+
+.joinIdLabel {
+    float: left; 
+    width: 10%;
+    font-size: 20px;
+}
+
+.joinPwdLabel {
+    float: left; width: 10%;
+    font-size: 20px;
+}
+
+.joinybLabel {
+    float: left; 
+    width: 29%; 
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.joinEmailLabel {
+    float: left;
+    width:10%;
+    font-size: 20px;
+    margin-left: 25%;
+}
+
+.joinId{
+    float: left;
+    font-size: 23px;
+    width: 300px;
+}
+
+.joinPwd{
+    float: left; 
+    font-size: 23px;
+    width: 300px;
+}
+
+.example{
+    float: left; font-size: 21px;
+    text-align: center; 
+    color: #aaa;
+}
+
+.joinyb{
+    float: left;
+    font-size: 23px;
+    width: 395px;
+    margin-left: 25%;
+    text-align: center;
+}
+
+.joinEmail{
+    float: left; 
+    font-size: 23px;
+    width: 300px;
+    text-align: center;
+}
+
+.joinbtn{
+    float: left;
+    width: 50%; height: 40px;
+    margin-top: 10%;
+    margin-left: 20%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    font-size: 20px;
+    color: #00664d;
+}

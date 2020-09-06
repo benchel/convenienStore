@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">	
+<mapper namespace="www.convenient.store.persistence.NoticeMapper">
+	<!-- https://ssssssu12.tistory.com/4 -->
+	
+	<!-- ReplyVO를 resultMap으로 맵핑함 -->
+	<!-- resultMap type="반환할 타입(경로포함)" id="ResultMap의 이름" -->
+	<resultMap type="www.convenient.store.model.ReplyVO" id="replyResultMap">
+		<!-- result column="칼럼이름" property="VO의 필드(속성)이름"/-->
+		<result column="hierarchy_id" property="hierarchyId"/>
+		<result column="content" property="content"/>
+		<result column="writer_id" property="writer"/>
+		<result column="regdate" property="regdate"/>		
+		<result column="updateDate" property="updateDate"/>			
+	</resultMap>
+	
+	<!-- NoticeVo를 resultMap으로 맵핑함 -->
+	<resultMap id="noticeResltMap" type="www.convenient.store.model.NoticeVO" extends="replyResultMap">
+       <result property="objType" column="obj_type"/>
+       <result property="boardId" column="board_id"/>
+       <result property="title" column="title"/>
+    </resultMap>
+    
+	<select id = "findById" resultType="www.convenient.store.model.NoticeVO" resultMap="noticeResltMap">
+		select * from tbl_post where obj_type='N' AND hierarchy_id=#{hierarchyId}
+	</select>
+	    
+	<!-- select id="MapperInterface에서 정의한 메서드이름"
+		 parameterType="표현식에 쓰일 파라미터 타입"
+		 resultMap="select에 사용할 resultMap의 id" --> 
+	<select id="getNoticeList" resultType="www.convenient.store.model.NoticeVO" resultMap="noticeResltMap">
+		<![CDATA[select * from tbl_post where obj_type='N']]>
+	</select>
+	
+	<!-- 공지사항의 총 개수 -->
+	<select id="getNoticeTotal" resultType="int">
+		select count(*) from tbl_post where obj_type='N'
+	</select>
+	
+	<!-- 페이징 처리 -->
+	<select id="getNoticeListWithPaging" resultType="www.convenient.store.model.NoticeVO" resultMap="noticeResltMap">
+		<![CDATA[
+		select
+		    hierarchy_id, title, writer_id, regdate, updateDate
+		from  
+		(select /*+INDEX_DESC(tbl_post index_post_reg_obj) */
+		    rownum rn, hierarchy_id, obj_type, title, content, writer_id, regdate, updateDate
+		from
+		    tbl_post
+		where obj_type='N' AND regdate <=sysdate AND rownum <=#{pageNum} * #{amount} 
+		)
+		where rn > (#{pageNum}-1) * #{amount} 
+		]]>
+	</select>
+	
+	<!-- notice는 NoticeMapper.java에서 @Param으로 정의한 이름 -->
+	<insert id="insertNotice">
+		<selectKey keyProperty="notice.hierarchyId" order="BEFORE" resultType="string">
+			select to62(seq_notice.nextval) from dual
+		</selectKey>
+		<![CDATA[insert into tbl_post(hierarchy_id, obj_type, content, writer_id,
+		 board_id, title)
+			values(#{notice.hierarchyId}, #{notice.objType}, #{notice.content}, 
+			#{notice.writer}, #{notice.boardId}, #{notice.title})]]>
+	</insert>
+	
+	<update id = "updateNotice">
+		update tbl_post
+		   set content = #{content},
+		       title = #{title},
+		       regdate = sysdate
+		 where hierarchy_id = #{hierarchyId}
+		 AND obj_type='N'
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from tbl_post 
+		 where hierarchy_id = #{hierarchyId}
+		 AND obj_type='N'
+	</delete>
+</mapper>

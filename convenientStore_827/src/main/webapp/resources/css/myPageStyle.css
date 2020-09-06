@@ -1,0 +1,197 @@
+*{margin: 0; padding: 0; text-decoration-line: none; color: darkslategrey; list-style: none;}
+
+.wrap{margin: 0 auto; width: 1200px; height: 800px;}
+
+/* header */
+
+#header{float: left; width: 100%; list-style: none;}
+
+.logo{ float: left; width: 100%; text-align: center; font-size: 22px;}
+
+.navigation{ float: left; width: 100%; font-size: 18px;}
+
+.menubar{float: left;}
+
+.menubar li{float: left; margin-right: 10px; margin-bottom: 10px;}
+
+
+#leftSection{
+    float: left;
+    width: 20%;
+    height: 100%;
+    border: 1px solid darkslategrey;
+}
+
+.profile{
+    float: left;
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    border: 1px solid #000;
+}
+
+.profile li{
+    list-style-type: none;
+    width: 100%;
+    height: 40px;
+}
+
+.userInfo li label{
+    float: left;
+    margin: 10px;
+}
+
+.userId{float: left; font-size: 18px; width: 100%;}
+.userjoinDate{float: left; font-size: 18px; width: 100%;}
+.userAttendance{float: left; font-size: 18px; width: 100%;}
+.userlogout{float: left; font-size: 18px; width: 100%;}
+
+#sideMenubar{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+.mainMenu{
+    float: left;
+    width: 200px;
+    height: 150px;
+    font-size: 22px;
+    border: 1px solid #000;
+}
+
+.mainMenu li{
+    float: left;
+    width: 200px;
+    height: 30px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.mainMenu li:hover{
+    background-color: aquamarine;
+}
+
+
+#rightSection{
+    float: left; 
+    width: 70%;
+    height: 100%;
+}
+
+/* 선호상품관리 css */
+
+.preferList{
+    float: left; 
+    width: 100%;
+    height: 100%;
+    
+}
+
+.preferPhrase{
+    float: left;
+    width: 100%;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.preferEA{
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.preferEA li{
+    float: left;
+    height: 40px;
+}
+
+.prfStoreBrand{
+    float: left; width: 13%;
+    margin-left: 10px;
+}
+
+.prfStoreBrandText{
+    float: left; width: 13%;
+    margin-left: 10px;
+}
+
+
+.prfAssort{
+    float: left; width: 10%;
+}
+
+.prfAssortText{
+    float: left; width: 60%;
+}
+
+.prfName{
+    float: left; width: 80px; 
+    margin-left: 10px;
+}
+
+.prfNameText{
+    float: left; width: 87%;
+}
+
+.prfPrice{
+    float: left; width: 10%;
+    margin-left: 10px;
+}
+
+.prfPriceText{
+    float: left; width: 87%;
+}
+
+
+.deletePrfBtn{
+    float: right;
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    color: burlywood;
+    background-color: floralwhite;
+    border: 1px solid floralwhite;
+    margin-right: 20px;
+}
+
+.recommendBtn{
+    float: right;
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    color: burlywood;
+    background-color: floralwhite;
+    border: 1px solid floralwhite;
+    margin-right: 20px;
+}
+
+
+/* 추천목록 UI */
+
+.recommendListwindow{
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: -40%;
+    margin-left: 35%;
+    position: absolute;
+    float: left;
+    width: 600px;
+    z-index: 10px;
+    display: none;
+}
+
+.listword{float: left; margin-left: 40%;}
+.rcmdEA{ float: left; list-style-type: none; width: 100%;}
+.rcmdStoreBrand{ float: left; width: 100px;}
+.rcmdStoreBrandText{ float: left; width: 80px; margin-right: 10px;}
+.rcmdAssort{float: left; width: 70px;}
+.rcmdAssortText{float: left; width: 100px; margin-right: 10px;}
+.closercmdBtn{
+    float: right; width: 100px; 
+    background-color: cadetblue; color: aliceblue;
+}
